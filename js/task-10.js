@@ -28,19 +28,25 @@ function createBoxes(amount) {
   let elementString = "";
   let widthAndHightCount = 30;
 
-  for (let i = 0; i < amount; i += 1) {
-    elementString += `
-    <div style="
-    display: inline-block;
-    margin: 10px; 
-    height: ${widthAndHightCount}px;
-    width: ${widthAndHightCount}px;
-    background-color: ${getRandomHexColor()}"></div>
-    `
-    widthAndHightCount += 10
+
+  if (amount > 100 || amount === 0) {
+    window.alert("Допустима кількість елементів від 1 до 100")
+  } else {
+    for (let i = 0; i < amount; i += 1) {
+      elementString += `
+      <div style="
+      display: inline-block;
+      margin: 10px; 
+      height: ${widthAndHightCount}px;
+      width: ${widthAndHightCount}px;
+      background-color: ${getRandomHexColor()}"></div>
+      `
+      widthAndHightCount += 10
+    }
+    
+    boxesEl.insertAdjacentHTML("afterbegin", elementString);
   }
   
-  boxesEl.insertAdjacentHTML("afterbegin", elementString);
   inputEl.value = ""
 }
 
