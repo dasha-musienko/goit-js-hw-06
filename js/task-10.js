@@ -28,9 +28,8 @@ function createBoxes(amount) {
   let elementString = "";
   let widthAndHightCount = 30;
 
-
-  if (amount > 100 || amount === 0) {
-    window.alert("Допустима кількість елементів від 1 до 100")
+  if (amount > inputEl.max || amount < inputEl.min) {
+    window.alert(`Допустима кількість елементів від ${inputEl.min} до ${inputEl.max}`)
   } else {
     for (let i = 0; i < amount; i += 1) {
       elementString += `
